@@ -1,8 +1,8 @@
-# Bayesian LoRA
+# Laplace LoRA
 
-Code for the paper [Bayesian Low-Rank Adaptation for Large Language Models](https://openreview.net/forum?id=FJiUyzOF1m).
-
-See the explanatory [blog post](https://maximerobeyns.com/bayesian_lora) and [documentation](https://maximerobeyns.github.io/bayesian_lora/).
+This is the code for the course project done as part of the CS772: Probabilistic Machine Learning under the guidance of [Prof. Piyush Rai](https://www.cse.iitk.ac.in/users/piyush/).
+This is an extension to the work: [Bayesian Low-Rank Adaptation for Large Language Models](https://arxiv.org/pdf/2308.13111).
+The parent code repository can be found [here](https://github.com/MaximeRobeyns/bayesian_lora).
 
 ## Installation
 
@@ -10,11 +10,14 @@ See the explanatory [blog post](https://maximerobeyns.com/bayesian_lora) and [do
 pip install bayesian-lora
 ```
 
-# Example
+# Usage
 
-We provide a comprehensive example in `examples/example_usage.py`, running
-through the main methods using Phi-2 on ARC-E.
+To use this we need to run the script in `examples/example_usage_modified.py`. This has the default settings as discussed in the [report](https://github.com/ujwalk04/laplace-lora/blob/main/CS772_Report_.pdf). Any changes required can be done by changing the config files in the `examples/configs/`.
 
+The script is running using LlaMA-3 on Winogrande. Also using Meta-LlaMA requires configuring with huggingface access token. Update it using:
+```bash
+python -c "from huggingface_hub.hf_api import HfFolder; HfFolder.save_token('MY_HUGGINGFACE_TOKEN_HERE')"
+```
 Note that running this requires a local installation with a few extra
 dependencies. Run:
 ```bash
@@ -24,8 +27,16 @@ pip install -e ".[examples]"
 ```
 and then
 ```bash
-python ./examples/example_usage.py
+python ./examples/example_usage_modified.py
 ```
+
+The finetuning script (without laplace-lora) is present at `examples/finetune.py`. We can use it to perform normal lora fine-tuning on LLMs.
+```bash
+python ./examples/finetune.py
+```
+
+<br>
+From the original repository:
 
 The main functions this library provides are for calculating Kronecker factors,
 the marginal likelihood, and the posterior predictive distribution. We show how
