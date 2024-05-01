@@ -34,9 +34,8 @@ The finetuning script (without laplace-lora) is present at `examples/finetune.py
 ```bash
 python ./examples/finetune.py
 ```
-
-<br>
-From the original repository:
+<hr>
+### From the original repository:
 
 The main functions this library provides are for calculating Kronecker factors,
 the marginal likelihood, and the posterior predictive distribution. We show how
