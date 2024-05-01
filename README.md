@@ -36,7 +36,7 @@ python ./examples/finetune.py
 ```
 <hr>
 
-#### From the original repository:
+#### From the parent repository:
 
 The main functions this library provides are for calculating Kronecker factors,
 the marginal likelihood, and the posterior predictive distribution. We show how
